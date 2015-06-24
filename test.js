@@ -35,6 +35,8 @@ test('del-value:', function () {
   test('should return modified object after `key` is deleted', function (done) {
     test.deepEqual(del({a: {b: {c: 'ddd'}, e: 'ee'}, foo: 'bar'}, 'a'), {foo: 'bar'})
     test.deepEqual(del({a: {b: {c: 'ddd'}, e: 'ee'}, foo: 'bar'}, 'a.b'), {a: {e: 'ee'}, foo: 'bar'})
+    test.deepEqual(del({a: 'b', c: {d: 'e'}}, 'c.d'), {a: 'b', c: {}})
+    test.deepEqual(del({a: 'b', c: {d: 'e'}}, 'c'), {a: 'b'})
     done()
   })
   test('should support array of property paths', function (done) {
@@ -42,6 +44,8 @@ test('del-value:', function () {
     var expected = {a: {e: 'ee'}, baz: {w: 'www'}}
 
     test.deepEqual(del(actual, ['a.b', 'foo', 'baz.qux']), expected)
+    test.deepEqual(del(actual, ['a.b', 'a.e', 'foo', 'baz.qux', 'baz.w']), {a: {}, baz: {}})
+    test.deepEqual(del(actual, ['a.b', 'a.e', 'foo', 'baz']), {a: {}})
     done()
   })
 })
