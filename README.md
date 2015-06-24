@@ -28,6 +28,14 @@ del({a: 'b', c: 'd'}, ['a', 'c']) //=> {}
 ```
 
 
+## Related
+- [always-callback](https://github.com/tunnckocore/always-callback): Create callback api for given sync function. Guarantee that given function (sync or async, no matter) will always have callback api and will handle errors correctly.
+- [get-value](https://github.com/jonschlinkert/get-value): Use property paths (`a.b.c`) to get a nested value from an object.
+- [has-value](https://github.com/jonschlinkert/has-value): Returns true if a value exists, false if empty. Works with deeply nested values using object paths.
+- [make-callback](https://github.com/tunnckocore/make-callback): Make synchronous function or generator to support callback api
+- [set-value](https://github.com/jonschlinkert/set-value): Create nested values and any intermediaries using dot notation (`'a.b.c'`) paths.
+
+
 ## Contributing
 
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/tunnckoCore/del-value/issues/new).  
