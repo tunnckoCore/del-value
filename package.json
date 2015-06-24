@@ -1,0 +1,20 @@
+{
+  "name": "del-value",
+  "version": "0.1.0",
+  "description": "Delete deeply nested values from an object using object property paths with dot notation like `a.b.c.x`and return the modified object if success, otherwise return original object.",
+  "repository": "tunnckoCore/del-value",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "standard && node test.js"
+  },
+  "dependencies": {
+    "get-value": "~1.1.5",
+    "isobject": "~1.0.0"
+  },
+  "devDependencies": {
+    "assertit": "^0.1.0"
+  },
+  "keywords": []
+}
