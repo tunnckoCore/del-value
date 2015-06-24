@@ -16,7 +16,15 @@ npm test
 > For more use-cases see the [tests](./test.js)
 
 ```js
-var delValue = require('del-value')
+var del = require('del-value')
+
+del({a: 'b'}, 'foo') //=> {a: 'b'}
+del({a: 'b', c: 'd'}, 'c') //=> {a: 'b'}
+del({a: 'b', c: {d: 'e'}}, 'c.d') //=> {a: 'b', c: {}}
+del({a: 'b', c: {d: 'e'}}, 'c') //=> {a: 'b'}
+del({a: 'b', c: {d: 'e', g: 'g'}}, 'c.d') //=> {a: 'b', c: {g: 'g'}}
+del({a: 'b', c: {d: 'e', g: 'g'}, z: 'z'}, ['a', 'c.d']) //=> {c: {g: 'g'}, z: 'z'}
+del({a: 'b', c: 'd'}, ['a', 'c']) //=> {}
 ```
 
 
