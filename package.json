@@ -18,5 +18,21 @@
     "assertit": "^0.1.0",
     "has-value": "^0.2.0"
   },
-  "keywords": []
+  "keywords": [
+    "del",
+    "delete",
+    "dot",
+    "dots",
+    "key",
+    "notation",
+    "omit",
+    "path",
+    "paths",
+    "prop",
+    "property",
+    "props",
+    "utils",
+    "val",
+    "value"
+  ]
 }
