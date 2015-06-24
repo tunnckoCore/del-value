@@ -8,27 +8,39 @@
 'use strict'
 
 var isObject = require('isobject')
+var kindOf = require('kind-of')
 var get = require('get-value')
 
 module.exports = function delValue (obj, key) {
   if (!isObject(obj)) {
     return {}
   }
-  if (typeof key !== 'string') {
-    return obj
-  }
-  if (key.indexOf('.') === -1) {
-    delete obj[key]
+  var type = kindOf(key)
+  if (type !== 'array' && type !== 'string') {
     return obj
   }
 
-  var segs = key.split('.')
-  var last = segs[segs.length - 1]
-  var _key = segs.slice(0, -1).join('.')
-  var parent = get(obj, _key)
+  var keys = key = type !== 'array' ? [key] : key
+  var len = keys.length
+  var i = 0
 
-  if (parent) {
-    delete parent[last]
+  while (i < len) {
+    var path = keys[i++]
+
+    if (path.indexOf('.') !== -1) {
+      var segs = path.split('.')
+      var last = segs[segs.length - 1]
+      var _key = segs.slice(0, -1).join('.')
+      var parent = get(obj, _key)
+
+      if (parent) {
+        delete parent[last]
+      }
+    }
+    if (obj.hasOwnProperty(path)) {
+      delete obj[path]
+    }
   }
+
   return obj
 }
