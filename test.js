@@ -39,13 +39,4 @@ test('del-value:', function () {
     test.deepEqual(del({a: 'b', c: {d: 'e'}}, 'c'), {a: 'b'})
     done()
   })
-  test('should support array of property paths', function (done) {
-    var actual = {a: {b: {c: 'ddd'}, e: 'ee'}, foo: 'bar', baz: {qux: 'dad', w: 'www'}}
-    var expected = {a: {e: 'ee'}, baz: {w: 'www'}}
-
-    test.deepEqual(del(actual, ['a.b', 'foo', 'baz.qux']), expected)
-    test.deepEqual(del(actual, ['a.b', 'a.e', 'foo', 'baz.qux', 'baz.w']), {a: {}, baz: {}})
-    test.deepEqual(del(actual, ['a.b', 'a.e', 'foo', 'baz']), {a: {}})
-    done()
-  })
 })
