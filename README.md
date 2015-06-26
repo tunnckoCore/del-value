@@ -1,6 +1,6 @@
 # del-value [![npmjs.com][npmjs-img]][npmjs-url] [![The MIT License][license-img]][license-url] 
 
-> Delete deeply nested values from an object using object property paths with dot notation like `a.b.c.x` and return the modified object if success, otherwise return original object.
+> Delete deeply nested value from an object using dot notation like `a.b.c.x` and return the modified object if success, otherwise return original object.
 
 [![code climate][codeclimate-img]][codeclimate-url] [![standard code style][standard-img]][standard-url] [![travis build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![dependency status][david-img]][david-url]
 
@@ -23,17 +23,16 @@ del({a: 'b', c: 'd'}, 'c') //=> {a: 'b'}
 del({a: 'b', c: {d: 'e'}}, 'c.d') //=> {a: 'b', c: {}}
 del({a: 'b', c: {d: 'e'}}, 'c') //=> {a: 'b'}
 del({a: 'b', c: {d: 'e', g: 'g'}}, 'c.d') //=> {a: 'b', c: {g: 'g'}}
-del({a: 'b', c: {d: 'e', g: 'g'}, z: 'z'}, ['a', 'c.d']) //=> {c: {g: 'g'}, z: 'z'}
-del({a: 'b', c: 'd'}, ['a', 'c']) //=> {}
 ```
 
 
 ## Related
-- [always-callback](https://github.com/tunnckocore/always-callback): Create callback api for given sync function. Guarantee that given function (sync or async, no matter) will always have callback api and will handle errors correctly.
+- [always-callback](https://github.com/tunnckoCore/always-callback): Create callback api for given sync function. Guarantee that given function (sync or async, no matter) will always have callback api and will handle errors correctly.
+- [make-callback](https://github.com/tunnckoCore/make-callback): Make synchronous function or generator to support callback api
+- [set-value](https://github.com/jonschlinkert/set-value): Create nested values and any intermediaries using dot notation (`'a.b.c'`) paths.
 - [get-value](https://github.com/jonschlinkert/get-value): Use property paths (`a.b.c`) to get a nested value from an object.
 - [has-value](https://github.com/jonschlinkert/has-value): Returns true if a value exists, false if empty. Works with deeply nested values using object paths.
-- [make-callback](https://github.com/tunnckocore/make-callback): Make synchronous function or generator to support callback api
-- [set-value](https://github.com/jonschlinkert/set-value): Create nested values and any intermediaries using dot notation (`'a.b.c'`) paths.
+- [del-values](https://github.com/tunnckoCore/del-values): Multiple delete deeply nested **values** from an object using dot notation `a.b.c`
 
 
 ## Contributing

@@ -11,7 +11,6 @@
 
 var test = require('assertit')
 var del = require('./index')
-var has = require('has-value')
 
 test('del-value:', function () {
   test('should return empty object if not object given', function (done) {
@@ -19,7 +18,7 @@ test('del-value:', function () {
     test.deepEqual(del(123456789), {})
     test.deepEqual(del('strings'), {})
     test.deepEqual(del([1, 2, 3]), {})
-    test.equal(!has(del()), !has({}))
+    test.equal(Object.keys(del()).length, 0)
     done()
   })
   test('should return original object if `key` is not string or array', function (done) {
